@@ -1,13 +1,16 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link href="css/picscrollanimation.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/fox.css">
     <link rel="stylesheet" href="css/segment.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 0px) and (max-device-width: 600px)" href="css/mbmain.css">
 
     <style>
+
         *{
             padding: 0px;
             margin: 0px;
@@ -92,19 +95,6 @@
 
         .pic:nth-child(5){
             background-color: orange;
-        }
-
-        .main .price-box{
-            width: 320px;
-            height: 42px;
-            line-height: 42px;
-            margin: 0 auto;
-            border: solid #000000 1px;
-            margin-top: 10px;
-        }
-
-        .price-box .info{
-            width: 30px;
         }
 
         .main .btn-order{
@@ -205,8 +195,18 @@
 
     /*order-box-css-end*********************************************************************/
 
+        .touchableLock{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 960px;
+            height: 480px;
+            z-index: 7000;
+            background-color: #ffffff;
+            opacity: 0.9;
+            display: none;
+        }
     /**********************************************************************/
-
 
     </style>
 </head>
@@ -225,11 +225,10 @@
             <div class="pic"> <img src="5.jpg"> </div>
         </div>
 
-        <div class="price-box">
-            <h3>售价:32元</h3>
-
-            <div class="info"></div>
-        </div>
+        <h1>售价：<label class="titlePrice">99</label>元</h1>
+        <h6>为什么选择我们？</h6>
+        <h6>24小时内免费送货上门</h6>
+        <h6>3日内不满意退款</h6>
 
         <div class="btn-order windowsStyle-btn-middle">现在订购</div>
 
@@ -252,7 +251,7 @@
                 <input type="text" class="windowsStyle-input addressNumber" placeholder="宿舍号码">
                 <p class="none-address">none-address</p>
 
-                <p>联系方式：<input type="text" placeholder="联系电话"></p>
+                <p>联系方式：<input type="text" id="phonenumber" placeholder="联系电话"></p>
 
                 <p>色彩与规格：</p>
                 <div class="ios-segmented-control">
@@ -287,6 +286,7 @@
             <div class="waringConfirm windowsStyle-btn-small">确定</div>
         </div>
 
+        <div class="touchableLock"></div>
     </div>
 
 </body>
@@ -318,7 +318,16 @@
             priceAdd = $('#priceAdd'),
             orderSubmit = $('.orderSubmit'),
             waringBox = $('.windowsStyleWaringBox'),
-            waringConfirm = $('.waringConfirm');
+            waringConfirm = $('.waringConfirm'),
+            touchableLock = $('.touchableLock');
+
+    var lockTouch = function(){
+        touchableLock.style.display = 'block';
+    }
+
+    var unlockTouch = function(){
+        touchableLock.style.display = 'none';
+    }
 
     var showOrderBox = function(){
         var isOrderShow = caine.has(orderBox, 'order-box-show');
@@ -345,6 +354,7 @@
         if(!isWaringBoxShow){
             $('#waringError').innerHTML = err;
             caine.add(waringBox, 'windowsStyleWaringBoxShow');
+            lockTouch();
         }
     }
 
@@ -353,6 +363,7 @@
 
         if(isWaringBoxShow){
             caine.remove(waringBox, 'windowsStyleWaringBoxShow');
+            unlockTouch();
         }
     }
 
@@ -361,25 +372,6 @@
     caine.add_listener(orderCloseTag, 'click', hideOrderBox);
 
     caine.add_listener(waringConfirm, 'click', hideWaringBox);
-
-//    caine.add_listener($('.color'), 'click', function(e){
-//        var btn = e.target;
-
-//        alert(btn.getAttribute('data-label'));
-//    })
-
-
-
-//    $('#priceAdd').onchange = function(){
-//        alert('ok');
-//    }
-
-//            var fuck = [];
-//    fuck.slice.call(document.querySelectorAll('.color')).forEach(function(obj, i){
-//                if(obj.classList.contains('light')){
-//                    alert(obj.getAttriute('data-index'));
-//                }
-//            })
 
     var priceAddClick = function(){
         var totalPrice = $('#totalPrice');
@@ -397,14 +389,24 @@
     caine.add_listener(priceAdd, 'change',priceAddClick);
 
     var getOrderInfo = function(){
-        var Location = $('.addressLocation').value;
-        var number = $('.addressNumber').value;
+        var Location = $('.addressLocation'),
+                number = $('.addressNumber'),
+                phonenumber = $('#phonenumber'),
+                isRightNumber = /\d{0,4}/,
+                isRightPhonenumber = /^1[3|4|5|7|8|9][0-9]\d{4,8}$/;
 
+        if(!isRightNumber.test(number.value)){
+            showWaringBoxWithError('请输入正确的宿舍号码');
+            return false;
+        }
 
-        var isRightNumber = /\d{0,4}/;
-        var isRightPhonenumber = /^1[3|4|5|7|8|9][0-9]\d{4,8}$/;
+        if(!isRightPhonenumber.test(phonenumber.value)){
+            showWaringBoxWithError('请输入正确的手机号码');
+            return false;
+        }
 
-        showWaringBoxWithError('fuck');
+        
+
     }
 
     caine.add_listener(orderSubmit, 'click', getOrderInfo);
