@@ -1,0 +1,157 @@
+<html>
+<head>
+    <title>admin</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/fox.css">
+
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /*************************************************/
+        .nav-col{
+            position: fixed;
+            width: 300px;
+            height: 100%;
+            /*display: none;*/
+            background-color: white;
+            z-index: 2000;
+            border-right: solid 1px #0044cc;
+
+            /*-webkit-box-shadow: 1px 1px 8px 1px #000000;*/
+
+            -webkit-transition: all 0.6s;
+            -webkit-transform: translateX(-280px);
+        }
+
+        .nav-col:hover{
+            -webkit-transform: translateX(0px);
+        }
+
+        .nav-col h1{
+            border-bottom: solid #0044cc 1px;
+        }
+
+        .nav-col-item{
+            border-bottom: solid 1px #0044cc;
+
+            height: 40px;
+            text-align: center;
+            background-color: #0044cc;
+            line-height: 40px;
+            color: white;
+        }
+        
+        /***********************************************/
+
+        .content{
+            width: 100%;
+            height: auto;
+        }
+        
+        .order-table{
+            position: relative;
+            left: 20px;
+            width: 900px;
+            height: auto;
+            border: solid #000000 1px;
+        }
+
+        .order-table table{
+            width: 100%;
+        }
+
+        table td{
+            text-align: center;
+        }
+
+        .notify{
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            border: solid #000000 1px;
+            width: 1020px;
+            height: 160px;
+        }
+
+        .notify .title{
+            width: 1020px;
+            height: 40px;
+            color: white;
+            line-height: 40px;
+            background-color: #0044cc;
+        }
+
+        .notify .cloes-tag{
+            right: 4px;
+            top: 4px;
+        }
+
+        .notify .window{
+            width: 180px;
+            height: 80px;
+            float: right;
+            margin: 20px 20px 0px 0px;
+            background-color: #0044cc;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="nav-col">
+        <h1>Navigation</h1>
+
+        <div class="order-table-nav nav-col-item">
+            Order
+        </div>
+
+        <div class="nav-col-item">
+            上载
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="order-table">
+            <table>
+                <tr>
+                    <th>time</th>
+                    <th>content</th>
+                    <th>address</th>
+                    <th>phone</th>
+                    <th>info</th>
+                    <th>adminAction</th>
+                </tr>
+                <tr>
+                    <td>time</td>
+                    <td>content</td>
+                    <td>address</td>
+                    <td>phone</td>
+                    <td>info</td>
+                    <td><div class="tableAction windowsStyle-btn-small">撤销</div></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="notify">
+            <div class="title">
+                <h2>WINDOW</h2>
+                <div class="cloes-tag"></div>
+            </div>
+
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+    </div>
+</body>
+<script>
+
+</script>
+</html>

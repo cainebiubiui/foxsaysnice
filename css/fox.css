@@ -1,0 +1,120 @@
+.windowsStyle-btn-small,
+.windowsStyle-btn-middle,
+.windowsStyle-btn-big{
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    cursor: hand;
+    margin: 6px 0px 0px 0px;
+}
+
+.windowsStyle-btn-big:active,
+.windowsStyle-btn-middle:active,
+.windowsStyle-btn-small:active{
+    color: #000000;
+    background-color: #a9a9a9;
+}
+
+.windowsStyle-btn-small{
+    width: 50px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.windowsStyle-btn-middle{
+    width: 80px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.windowsStyle-btn-big{
+
+}
+
+.windowsStyle-select{
+    width: 378px;
+    height: 28px;
+    text-align: center;
+    background: transparent;
+    border: solid #000000 1px;
+
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    -o-appearance: none;
+    -moz-appearance: none;
+}
+
+.windowsStyle-input{
+    outline: none;
+    border: solid #000000 1px;
+    background-color: white;
+    height: 28px;
+    width: 378px;
+    margin: 6px 0px 0px 0px;
+}
+
+.cloes-tag {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border: none;
+    cursor: hand;
+    -webkit-transition: all 1s;
+    -ms-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.cloes-tag:before,
+.cloes-tag:after {
+    content: '';
+    position: absolute;
+    background-color: #ffffff;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+}
+.cloes-tag:before {
+    left: 45%;
+    top: -10%;
+    width: 10%;
+    height: 120%;
+}
+.cloes-tag:after {
+    top: 45%;
+    left: -10%;
+    width: 120%;
+    height: 10%;
+}
+
+.windowsStyleWaringBox{
+    position: absolute;
+    width: 960px;
+    height: 100px;
+    background-color: #003399;
+    color: #ffffff;
+    z-index: 8000;
+    line-height: 80px;
+
+    -webkit-transition: all 0.8s;
+
+    top: -100px;
+    left: 0px;
+}
+
+.windowsStyleWaringBoxShow{
+    -webkit-transform: transLateY(100px);
+}
+
+.windowsStyleWaringBox h3{
+    margin-left: 6px;
+}
+
+.windowsStyleWaringBox .waringConfirm{
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+}

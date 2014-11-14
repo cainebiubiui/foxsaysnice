@@ -1,0 +1,43 @@
+.ios-segmented-control {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    border: solid #000000 1px;
+}
+.ios-segmented-control ul {
+    position: relative;
+    /*float: left;*/
+    left: 50%;
+    /*margin: 10px 0px 10px 0px;*/
+    color: #ffffff;
+}
+.ios-segmented-control li {
+    position: relative;
+    float: left;
+    right: 50%;
+    list-style: none;
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    background-color: #a9a9a9;
+    text-align: center;
+    cursor: hand;
+    margin-left: 6px;
+}
+.ios-segmented-control li:first-child {
+    margin-left: 0px;
+    /*border-left: solid #017aff 1px;*/
+    /*border-bottom-left-radius: 5px;*/
+    /*border-top-left-radius: 5px;*/
+}
+.ios-segmented-control li:last-child {
+    /*border-bottom-right-radius: 5px;*/
+    /*border-top-right-radius: 5px;*/
+}
+.ios-segmented-control .light {
+    -webkit-transition: all 0.6s;
+    background-color: #000000;
+    color: #ffffff;
+}

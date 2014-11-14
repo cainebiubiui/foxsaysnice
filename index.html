@@ -1,0 +1,413 @@
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link href="css/picscrollanimation.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/fox.css">
+    <link rel="stylesheet" href="css/segment.css">
+
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: "STHeiti Light";
+        }
+
+        .main{
+            position: relative;
+            margin: 0 auto;
+            width: 960px;
+            height: 480px;
+            border: solid #000000 1px;
+            margin-top: 80px;
+
+            overflow: hidden;
+        }
+
+        .main .pic-box{
+            position: relative;
+            left: -720px;
+            width: 2400px;
+            height: 210px;
+
+            -webkit-transition: all 0.6s;
+            -ms-transition: all 0.6s;
+            -moz-transition: all 0.6s;
+            -o-transition: all 1s;
+            transition: all 1s;
+        }
+
+        .main .pic-right{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 240px;
+            height: 210px;
+            background-color: #ffffff;
+            opacity: 0.6;
+
+            z-index: 2;
+        }
+
+        .main .pic-left{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 240px;
+            height: 210px;
+            background-color: #ffffff;
+            opacity: 0.6;
+
+            z-index: 2;
+        }
+
+        .pic-box .pic{
+            float: left;
+            width: 480px;
+            height: 210px;
+
+            overflow: hidden;
+        }
+
+        .pic img{
+            width: 480px;
+        }
+
+        .pic:nth-child(1){
+            background-color: red;
+        }
+
+        .pic:nth-child(2){
+            background-color: #000000;
+        }
+
+        .pic:nth-child(3){
+            background-color: brown;
+        }
+
+        .pic:nth-child(4){
+            background-color: seagreen;
+        }
+
+        .pic:nth-child(5){
+            background-color: orange;
+        }
+
+        .main .price-box{
+            width: 320px;
+            height: 42px;
+            line-height: 42px;
+            margin: 0 auto;
+            border: solid #000000 1px;
+            margin-top: 10px;
+        }
+
+        .price-box .info{
+            width: 30px;
+        }
+
+        .main .btn-order{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            z-index: 400;
+
+            -webkit-transition: all 0.2s;
+            -ms-transition: all 0.6s;
+            -moz-transition: all 0.6s;
+            -o-transition: all 1s;
+            transition: all 1s;
+
+            /*-webkit-box-shadow: 1px 1px 8px #505050;*/
+        }
+
+        .btn-order-move{
+            /*-webkit-transform: scale(0);*/
+            -webkit-transform: translateY(-200px) translateX(-228px);
+            /*-webkit-animation: btn-order-move 0.8s forwards;*/
+        }
+
+        @-webkit-keyframes btn-order-move{
+            0% {opacity: 1}
+            99% {opacity: 1}
+            100% {-webkit-transform: scale(30); opacity: 0}
+         }
+
+    /*order-box-css-start *********************************************************/
+
+        .order-box{
+            width: 960px;
+            height: 480px;
+            background-color: #ffffff;
+
+            position: absolute;
+            top: 480px;
+            left: 0px;
+
+            z-index: 4000;
+
+            -webkit-transition: all 0.6s;
+
+        }
+
+        .order-box-show{
+            -webkit-transform: translateY(-480px);
+        }
+
+        .order-box-send{
+
+        }
+
+        .order-box-header{
+            height: 80px;
+            background-color: #0044cc;
+            color: #ffffff;
+            line-height: 80px;
+        }
+
+        .order-box .cloes-tag{
+            position: absolute;
+            right: 6px;
+            top: 6px;
+        }
+
+        .order-box-pic{
+            height: 400px;
+            float: left;
+            width: 360px;
+            /*background-color: red;*/
+        }
+
+        .order-box-pic img{
+            width: 300px;
+            height: 180px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .order-box-info{
+            position: relative;
+            height: 400px;
+            float: right;
+            width: 600px;
+            /*background-color: #000000;*/
+        }
+
+        .order-box-info .none-address{
+            position: relative;
+            text-align: right;
+            color: #0044cc;
+            text-decoration: underline;
+            cursor: hand;
+        }
+
+
+    /*order-box-css-end*********************************************************************/
+
+    /**********************************************************************/
+
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="pic-right"></div>
+        <div class="pic-left"></div>
+
+        <div class="pic-box">
+            <div class="pic"> <img src="3.jpg"> </div>
+            <div class="pic"> <img src="2.jpg"> </div>
+            <div class="pic"> <img src="1.jpg"> </div>
+            <div class="pic"> <img src="4.jpg"> </div>
+            <div class="pic"> <img src="5.jpg"> </div>
+        </div>
+
+        <div class="price-box">
+            <h3>售价:32元</h3>
+
+            <div class="info"></div>
+        </div>
+
+        <div class="btn-order windowsStyle-btn-middle">现在订购</div>
+
+        <div class="order-box">
+            <div class="order-box-header">
+                <h1>确认你的订单</h1>
+
+                <div class="cloes-tag"></div>
+            </div>
+
+            <div class="order-box-pic">
+                <img src="hpic.jpg">
+            </div>
+
+            <div class="order-box-info">
+
+                <select class="windowsStyle-select addressLocation">
+                    <option>make a address</option>
+                </select>
+                <input type="text" class="windowsStyle-input addressNumber" placeholder="宿舍号码">
+                <p class="none-address">none-address</p>
+
+                <p>联系方式：<input type="text" placeholder="联系电话"></p>
+
+                <p>色彩与规格：</p>
+                <div class="ios-segmented-control">
+                    <ul>
+                        <li class="color light" data-index="0">color</li>
+                        <li class="color" data-index="1">color</li>
+                        <li class="color" data-index="2">color</li>
+                        <li class="color" data-index="3">color</li>
+                    </ul>
+                </div>
+
+                <div class="ios-segmented-control">
+                    <ul>
+                        <li class="size light" data-index="0">size</li>
+                        <li class="size" data-index="1">size</li>
+                        <li class="size" data-index="2">size</li>
+                        <li class="size" data-index="3">size</li>
+                    </ul>
+                </div>
+
+
+                <h1>总价：<label id="totalPrice">99</label>元</h1>
+                <input type="checkbox" id="priceAdd">
+                <label for="priceAdd">添加一元，即刻送货</label>
+                <div class="orderSubmit windowsStyle-btn-middle">提交订单</div>
+            </div>
+
+        </div>
+
+        <div class="windowsStyleWaringBox">
+            <h3 id="waringError">sdasdasdsadsa</h3>
+            <div class="waringConfirm windowsStyle-btn-small">确定</div>
+        </div>
+
+    </div>
+
+</body>
+<script src="js/caine.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/picscroll.js"></script>
+<script src="js/ios-segmented-control.js"></script>
+<script>
+
+    var addressJSON = {
+        "location":[
+                "竹一",
+                "竹二"
+        ]
+    }
+
+    var addressSelectInit = function(){
+        for(var locationName in addressJSON.location){
+            var addSelect = '<option>'+addressJSON.location[locationName]+'</option>';
+            $('.addressLocation').innerHTML += addSelect;
+        }
+    }
+
+    addressSelectInit();
+
+    var orderBox = $('.order-box'),
+            orderBtn = $('.btn-order'),
+            orderCloseTag = $('.cloes-tag'),
+            priceAdd = $('#priceAdd'),
+            orderSubmit = $('.orderSubmit'),
+            waringBox = $('.windowsStyleWaringBox'),
+            waringConfirm = $('.waringConfirm');
+
+    var showOrderBox = function(){
+        var isOrderShow = caine.has(orderBox, 'order-box-show');
+
+        if(isOrderShow){
+            caine.remove(orderBox, 'order-box-show');
+        }else{
+            caine.add(orderBox, 'order-box-show');
+        }
+    }
+
+    var hideOrderBox = function(){
+
+        var isOrderShow = caine.has(orderBox, 'order-box-show');
+
+        if(isOrderShow){
+            caine.remove(orderBox, 'order-box-show');
+        }
+    }
+
+    var showWaringBoxWithError = function(err){
+        var isWaringBoxShow = caine.has(waringBox, 'windowsStyleWaringBoxShow');
+
+        if(!isWaringBoxShow){
+            $('#waringError').innerHTML = err;
+            caine.add(waringBox, 'windowsStyleWaringBoxShow');
+        }
+    }
+
+    var hideWaringBox = function(){
+        var isWaringBoxShow = caine.has(waringBox, 'windowsStyleWaringBoxShow');
+
+        if(isWaringBoxShow){
+            caine.remove(waringBox, 'windowsStyleWaringBoxShow');
+        }
+    }
+
+    caine.add_listener(orderBtn, 'click', showOrderBox);
+
+    caine.add_listener(orderCloseTag, 'click', hideOrderBox);
+
+    caine.add_listener(waringConfirm, 'click', hideWaringBox);
+
+//    caine.add_listener($('.color'), 'click', function(e){
+//        var btn = e.target;
+
+//        alert(btn.getAttribute('data-label'));
+//    })
+
+
+
+//    $('#priceAdd').onchange = function(){
+//        alert('ok');
+//    }
+
+//            var fuck = [];
+//    fuck.slice.call(document.querySelectorAll('.color')).forEach(function(obj, i){
+//                if(obj.classList.contains('light')){
+//                    alert(obj.getAttriute('data-index'));
+//                }
+//            })
+
+    var priceAddClick = function(){
+        var totalPrice = $('#totalPrice');
+        if(this.checked){
+            var oldPrice = totalPrice.innerText;
+            var newPrice = parseInt(oldPrice)+1;
+            totalPrice.innerText = newPrice;
+        }else if(!this.checked){
+            var oldPrice = totalPrice.innerText;
+            var newPrice = parseInt(oldPrice)-1;
+            totalPrice.innerText = newPrice;
+        }
+    }
+
+    caine.add_listener(priceAdd, 'change',priceAddClick);
+
+    var getOrderInfo = function(){
+        var Location = $('.addressLocation').value;
+        var number = $('.addressNumber').value;
+
+
+        var isRightNumber = /\d{0,4}/;
+        var isRightPhonenumber = /^1[3|4|5|7|8|9][0-9]\d{4,8}$/;
+
+        showWaringBoxWithError('fuck');
+    }
+
+    caine.add_listener(orderSubmit, 'click', getOrderInfo);
+
+</script>
+</html>

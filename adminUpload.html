@@ -1,0 +1,185 @@
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        p{
+            text-align: center;
+            color: #F0F0F0;
+        }
+
+        hr{
+            width: 60%;
+            margin-left: 20%;
+            background: transparent;
+            border: solid 0.5px #F0F0F0;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        /**************************************************/
+
+        .upload{
+            /*position: absolute;*/
+            /*border: solid 1px #969696;*/
+            width: 600px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+
+        .upload .pic{
+            width: 600px;
+            height: 280px;
+            background-color: #808080;
+            border-radius: 4px;
+        }
+
+        .upload input{
+            width: 400px;
+            height: 32px;
+            background-color: #ffffff;
+            border: solid #000000 1px;
+            border-radius: 4px;
+            margin: 5px 5px 5px 5px;
+            outline: none;
+            font-size: 0.8em;
+        }
+
+        .add-size input{
+            float: left;
+            width: 100px;
+        }
+
+        .upload .add-size{
+            height: 44px;
+        }
+
+        .upload .btn-add-size{
+            float: left;
+            width: 100px;
+            height: 32px;
+            background-color: #1573BD;
+            border-radius: 4px;
+            line-height: 32px;
+            text-align: center;
+            color: #ffffff;
+            margin: 5px;
+            cursor: hand;
+        }
+
+        .upload .size-box{
+            height: 89px;
+            /*height: auto;*/
+        }
+
+        .upload .size{
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 32px;
+            border-radius: 4px;
+            line-height: 32px;
+            text-align: left;
+            color: #1573BD;
+            border: solid 1px #1573BD;
+            margin: 5px;
+        }
+
+        .upload .size:after{
+            position: absolute;
+            content: '-';
+            font-size: 2em;
+            line-height: 16px;
+            background-color: red;
+            color: #ffffff;
+            width: 20px;
+            height: 20px;
+            top: 6px;
+            right: 2px;
+            cursor: hand;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .upload .btn-submit{
+            background-color: #1573BD;
+            width: 590px;
+            height: 32px;
+            color: #ffffff;
+            border-radius: 4px;
+            text-align: center;
+            line-height: 32px;
+            cursor: hand;
+            margin: 5px;
+        }
+    </style>
+
+</head>
+<body>
+<p>order</p>
+<p>upload</p>
+
+<hr>
+
+    <div class="upload">
+        <form method="post">
+            <div class="pic">
+
+            </div>
+
+            <div class="text">
+                <input type="text" placeholder="name">
+                <input type="text" placeholder="price">
+
+                <div class="add-size">
+                    <input type="text" placeholder="size" maxlength="6" class="sizeval">
+                    <div class="btn-add-size">添加尺寸</div>
+                </div>
+
+                <div class="size-box">
+                    <!--<div class="size">175cm</div>-->
+                    <!--<div class="size">175</div>-->
+                    <!--<div class="size">175</div>-->
+                    <!--<div class="size">175</div>-->
+                    <!--<div class="size">175</div>-->
+                    <!--<div class="size">175</div>-->
+                    <!--<div class="size">175</div>-->
+                    <!--<div class="size">175</div>-->
+                </div>
+            </div>
+
+            <div class="btn-submit">提交</div>
+        </form>
+    </div>
+
+</body>
+<script src="js/caine.js"></script>
+<script src="js/ajax.js"></script>
+<script src="js/ios-segmented-control.js"></script>
+<script>
+
+    caine.add_listener($('.btn-add-size'), 'click', function(){
+        var size = $('.sizeval');
+
+        var add = function(str){
+            var old = this.innerHTML;
+            this.innerHTML = old+str;
+        }
+
+        var str = '<div class="size">'+size.value+'</div>';
+
+        add.call($('.size-box'), str);
+        size.value = null;
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+.move-right-one{
+    -webkit-transform: translateX(480px)
+}
+
+.move-right-two{
+    -webkit-transform: translateX(960px)
+}
+
+.move-left-one{
+    -webkit-transform: translateX(-480px)
+}
+
+.move-left-two{
+    -webkit-transform: translateX(-960px)
+}
+
+.move-left-last{
+    -webkit-animation: left-lastspring 1s;
+}
+
+@-webkit-keyframes left-lastspring{
+    0% {-webkit-transform: translateX(-960px)}
+    50% {-webkit-transform: translateX(-1240px)}
+    100% {-webkit-transform: translateX(-960px)}
+}
+
+.move-right-last{
+    -webkit-animation: right-lastspring 1s;
+}
+
+@-webkit-keyframes right-lastspring{
+    0% {-webkit-transform: translateX(960px)}
+    50% {-webkit-transform: translateX(1240px)}
+    100% {-webkit-transform: translateX(960px)}
+}
